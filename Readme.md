@@ -28,4 +28,6 @@ Para poder ejecutar el set de pruebas  ejecutar en la consola: ```docker-compose
 
 Para ejecutar el ambiente de pruebas ejecutar: ```docker-compose up --build```, este comando desplegara el ambiente la url [http://localhost:9000](http://localhost:9000) y open api en [http://localhost:9000/swagger](http://localhost:9000/swagger).
 
+```La primera ejecucion puede tardar debido a que el sistema despliega la base de datos en el primer uso.```
+
 La version online se encuentra disponible en [http://35.226.115.206:24639](http://35.226.115.206:24639) y open api en [http://35.226.115.206:24639/swagger](http://35.226.115.206:24639/swagger).
