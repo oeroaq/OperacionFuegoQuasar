@@ -1,0 +1,21 @@
+services:
+    operacion-fuego-quasar-db-tests:
+        image: mcr.microsoft.com/mssql/server
+        container_name: operacion-fuego-quasar-db-tests
+        environment:
+            ACCEPT_EULA: Y
+            SA_PASSWORD: pruebas2021*
+    operacion-fuego-quasar-tests:        
+        container_name: operacion-fuego-quasar-tests
+        environment: 
+            DB_HOST: operacion-fuego-quasar-db-tests
+            DB_USER: sa
+            DB_DATABASE: MLPruebas
+            DB_PASS: pruebas2021*
+            ERROR: 0.001
+            ASPNETCORE_ENVIRONMENT: Development
+        build:
+            context: .
+            dockerfile: Dockerfile-tests
+        links:
+            - operacion-fuego-quasar-db-tests

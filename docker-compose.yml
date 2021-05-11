@@ -1,0 +1,21 @@
+services:
+    operacion-fuego-quasar-db:
+        image: mcr.microsoft.com/mssql/server
+        container_name: operacion-fuego-quasar-db
+        environment:
+            ACCEPT_EULA: Y
+            SA_PASSWORD: pruebas2021*
+    operacion-fuego-quasar:        
+        container_name: operacion-fuego-quasar
+        environment: 
+            DB_HOST: operacion-fuego-quasar-db
+            DB_USER: sa
+            DB_DATABASE: MLPruebas
+            DB_PASS: pruebas2021*
+            ERROR: 0.001
+            ASPNETCORE_ENVIRONMENT: Development
+        build: .
+        ports: 
+            - 9000:80
+        links:
+            - operacion-fuego-quasar-db
